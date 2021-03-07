@@ -1,38 +1,33 @@
 package com.nag.beer.web.model;
 
-import com.nag.beer.web.model.BeerStyleEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-import java.time.OffsetDateTime;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Null;
+import javax.validation.constraints.Positive;
 import java.util.UUID;
 
 /**
- * Created by jt on 2019-05-12.
+ * Created by jt on 2019-04-20.
  */
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class BeerDto {
+
+    @Null
     private UUID id;
-    private Integer version;
 
-    private OffsetDateTime createdDate;
-    private OffsetDateTime lastModifiedDate;
-
+    @NotBlank
     private String beerName;
 
-    private BeerStyleEnum beerStyle;
+    @NotBlank
+    private String beerStyle;
 
+    @Positive
     private Long upc;
-
-    private BigDecimal price;
-
-    private Integer quantityOnHand;
-
 }
